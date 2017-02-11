@@ -1,14 +1,21 @@
-header(style="border:solid 1px blue")
+header
     nav(role="navigation")
-        div
-            a(href="/") Instagram
-        div
-            input(type="text" placeholder="검색")
-        div
-            div
-                a(href="/explorer") 사람찾기
-            div
-                a(href="#") 활동피드
-            div
-                a(href="/jeonghwan") 프로필
+        div.container
+            div.float-left.col-4
+                div.logo
+                    a.hide-text(href="/") Instagram
+            div.float-left.col-4
+                div.searchbar
+                    input(type="text" placeholder="검색")
+                    span.magnifier
+            div.float-left.col-4
 
+                div.float-right
+                    div.my
+                        a.hide-text(href="/explorer") 사람 찾기
+                div.float-right
+                    div.noti
+                        a.hide-text(href="#") 활동 피드
+                div.float-right
+                    div.explorer
+                        a.hide-text(href="/jeonghwan") 프로필
