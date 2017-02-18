@@ -30,6 +30,26 @@ app.get('/', (req, res) => {
   res.render('main', {posts: posts});
 });
 
+app.get('/:userId', (req, res) => {
+  // find posts by userId
+  console.log(req.params.userId);
+
+  //
+
+  res.render('user', {
+    user: {
+      serviceId: 'jeonghwan',
+      profileImage: 'https://scontent-icn1-1.cdninstagram.com/t51.2885-19/s150x150/15625475_1649716258655204_4098158640228204544_a.jpg'
+    },
+    statistics: {
+      postsCnt: 406,
+      followersCnt: 181,
+      folloingCnt: 176,
+    },
+    posts: posts
+  })
+})
+
 app.listen(3000, () => {
   console.log('Example app listening on port 3000!');
 });

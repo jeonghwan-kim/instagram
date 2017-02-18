@@ -1,0 +1,20 @@
+main
+    section
+        img(src=user.profileImage)
+        h1= user.serviceId
+        p
+            | 게시물&ensp;
+            span= statistics.postsCnt
+            | 개
+        p
+            | 팔로워&ensp;
+            span= statistics.followersCnt
+            | 명
+        p
+            | 팔로잉&ensp;
+            span= statistics.folloingCnt
+            | 명
+    section
+        for p in posts
+            article
+                img(src=p.image)
