@@ -6,48 +6,42 @@ html(lang="ko")
         link(rel="stylesheet" type="text/css" href="/assets/stylesheets/style.css")
     body
         include header.pug
-        section(style="border:solid 1px red")
+        section
             main
-                for post in posts
-                    article
-                        header
-                            a(href="/" + post.author.serviceId)
-                                img(src=post.author.profileImage)
-                            div
-                                a(href="/" + post.author.serviceId)
-                            a(href="")
-                                time(datetime=post.createdAt title=post.createdAt)= post.createdAt
-                                //time(datetime="" title="") 19분
-                        div
-                            img(width="300px" alt=post.text src=post.image)
-                        div
-                            section
-                                for likeUser in post.likes
-                                    a(title=likeUser href="/" + likeUser)= likeUser
-                                    | ,
-                            ul
-                                li
-                                    h1
-                                        a(title=post.author.serviceId href="/" + post.author.serviceId)= post.author.serviceId
-                                        span= post.text
-                                        //span
-                                            | ㅋㅋㅋㅋㅋ쓸데없이 예쁘게 찍기😂kkkkkkkk instagram~~~~????
-                                            br
-                                            | .
-                                            br
-                                            a(href="/explorer/tags/instagram") #instagram
-                                            a(href="/explorer/tags/놀리기") #놀리기
-                                            a(href="/explorer/tags/잘찍었지") #잘찍었지
-                                for reply in post.replies
-                                    li
-                                        button(title="댓글삭제")
-                                        a(title=reply.author href="/" + reply.author)= reply.author
-                                        span= reply.message
-                            section
-                                a(href="#" role="button" aria-disabled="false")
-                                    span 좋아요 취소
-                                form
-                                    input(type="text" area-label="댓글달기..." placeholder="댓글달기")
-                                button
-                                    | 옵션 더보기
+                section
+                    for post in posts
+                        article
+                            header
+                                a.profile-img(href="/" + post.author.serviceId)
+                                    img(src=post.author.profileImage)
+                                div.profile-id
+                                    a(href="/" + post.author.serviceId)= post.author.serviceId
+                                a.time(href="")
+                                    //time(datetime=post.createdAt title=post.createdAt)= post.createdAt
+                                    time(datetime="" title="") 19분
+                            div.post-img
+                                img(width="300px" alt=post.text src=post.image)
+                            div.post-meta
+                                section.user-likes
+                                    for likeUser in post.likes
+                                        a(title=likeUser href="/" + likeUser)= likeUser
+                                        | ,
+                                    | 님이 좋아합니다
+                                ul.reply
+                                    li.author
+                                        h1
+                                            a(title=post.author.serviceId href="/" + post.author.serviceId)= post.author.serviceId
+                                            span= post.text
+                                    for reply in post.replies
+                                        li.others
+                                            a(title=reply.author href="/" + reply.author)= reply.author
+                                            span= reply.message
+                                            button(title="댓글삭제")
+                                section.reply-form
+                                    a.cancel-like(href="#" role="button" aria-disabled="false")
+                                        span 좋아요 취소
+                                    form
+                                        input(type="text" area-label="댓글달기..." placeholder="댓글달기...")
+                                    button
+                                        | 옵션 더보기
         include footer.pug
