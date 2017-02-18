@@ -260,3 +260,39 @@ main section article .post-meta section.reply-form button {
     height: 44px;
     padding: 0;
 }
+footer {
+    background-color: #fafafa;
+    text-align: center;
+    padding-bottom: 60px;
+}
+footer nav {
+    text-align: center;
+    width: 360px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+footer nav ul {
+    margin-bottom: 0;
+}
+footer nav li {
+    display: inline-block;
+    margin-right: 16px;
+    margin-bottom: 7px;
+    font-size: 12px;
+}
+footer nav li a,
+footer nav li a:hover,
+footer nav li a:focus,
+footer nav li a:visited {
+    color: #003569;
+    text-decoration: none;
+    font-weight: 600;
+}
+footer .brand {
+    color: #999;
+    font-size: 14px;
+    font-weight: 600;
+}

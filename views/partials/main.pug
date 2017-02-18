@@ -1,0 +1,37 @@
+main
+    section
+        for post in posts
+            article
+                header
+                    a.profile-img(href="/" + post.author.serviceId)
+                        img(src=post.author.profileImage)
+                    div.profile-id
+                        a(href="/" + post.author.serviceId)= post.author.serviceId
+                    a.time(href="")
+                        //time(datetime=post.createdAt title=post.createdAt)= post.createdAt
+                        time(datetime="" title="") 19분
+                div.post-img
+                    img(width="300px" alt=post.text src=post.image)
+                div.post-meta
+                    section.user-likes
+                        for likeUser in post.likes
+                            a(title=likeUser href="/" + likeUser)= likeUser
+                            | ,
+                        | 님이 좋아합니다
+                    ul.reply
+                        li.author
+                            h1
+                                a(title=post.author.serviceId href="/" + post.author.serviceId)= post.author.serviceId
+                                span= post.text
+                        for reply in post.replies
+                            li.others
+                                a(title=reply.author href="/" + reply.author)= reply.author
+                                span= reply.message
+                                button(title="댓글삭제")
+                    section.reply-form
+                        a.cancel-like(href="#" role="button" aria-disabled="false")
+                            span 좋아요 취소
+                        form
+                            input(type="text" area-label="댓글달기..." placeholder="댓글달기...")
+                        button
+                            | 옵션 더보기
